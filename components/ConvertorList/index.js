@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import Style from './style';
+import {Link} from 'react-router-native';
 
 class ConvertorList extends React.Component {
     constructor() {
@@ -10,7 +11,7 @@ class ConvertorList extends React.Component {
     render() {
         return(
             <View>
-                {this.props.convertors.map((v, i) => <ConvertorListItem name={v.name} key={i} />)}
+                {this.props.convertors.map((v, i) => <ConvertorListItem name={v.name} link={v.link} key={i} />)}
             </View>
         );
     }
@@ -19,9 +20,11 @@ class ConvertorList extends React.Component {
 class ConvertorListItem extends React.Component {
     render() {
         return (
-            <View style={Style.itemContainer}>
-                <Text style={Style.itemNameText}>{this.props.name}</Text>
-            </View>
+            <Link to={this.props.link}>
+                <View style={Style.itemContainer}>
+                    <Text style={Style.itemNameText}>{this.props.name}</Text>
+                </View>
+            </Link>
         )
     }
 }

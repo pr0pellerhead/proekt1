@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import Style from './style';
+import {Link} from 'react-router-native';
 
 class Header extends React.Component {
     constructor() {
@@ -11,7 +12,9 @@ class Header extends React.Component {
     render() {
         return (
             <View style={Style.header}>
-                <Text style={Style.title}>App One</Text>
+                <Link to="/">
+                    <Text style={Style.title}>App One</Text>
+                </Link>
             </View>
         )
     }
